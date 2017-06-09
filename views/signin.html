@@ -1,0 +1,26 @@
+<div class="main--login">
+  <div class="main--login-about">
+    <h1 class="about--title">Mini Twitter Clone</h1>
+    <p class="about--blurb">Built with <a href="https://github.com/SeunAdelekan/Kanary" target="_blank">Kanary</a> and AngularJS</p>
+    <p class="about--author">by <a href="http://curious.com.ng/" target="_blank">Emmanuel Olucurious</a>, for educational purposes only.</p>
+  </div>
+
+  <div class="main--login-login">
+    <h3>Sign In</h3>
+    <p ng-show="message" class="error">{{ message}}</p>
+    <form name="myForm" class="login--form" ng-submit="vm.login()" novalidate>
+
+      <fieldset>
+        <input class="login--email-input" type="email" name="email" placeholder="Email" ng-model="vm.user.email" ng-required="true">
+        <p class="error validationerror" ng-show="myForm.email.$invalid && myForm.email.$touched">Must be a valid email.</p>
+
+        <input class="login--password-text" type="password" name="password" placeholder="Password" ng-model="vm.user.pword" ng-required="true">
+        <p class="error validationerror" ng-show="myForm.password.$invalid && myForm.password.$touched">Password is required.</p>
+      </fieldset>
+
+      <button type="submit" class="login--submit" ng-disabled="myForm.$invalid">Login</button>
+      <span>or</span>
+      <a class="login--register" ng-href="#!/signup">Register</a>
+    </form>
+  </div>
+</div>

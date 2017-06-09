@@ -1,0 +1,13 @@
+<nav>
+  <div class="header--branding">
+    <a ng-href="#!/" ng-show="currentUser">Cwitter</a>
+    <a ng-href="#!/signin" ng-hide="currentUser">Cwitter</a>
+  </div>
+  <ul class="header--user">
+    <li class="header--user-list" ng-show="currentUser"><a class="header--user-logout" ng-href="#!/signout">Logout</a></li>
+    <li class="header--user-list" ng-show="currentUser"><span class="header--user-welcome">Hi {{ currentUser.first_name }}</span></li>
+
+    <li class="header--user-list" ng-hide="currentUser"><a class="header--user-login" ng-href="#!/signin">SignIn</a></li>
+    <li class="header--user-list" ng-hide="currentUser"><a class="header--user-register" ng-href="#!/signup">SignUp</a></li>
+  </ul>
+</nav>

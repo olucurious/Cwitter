@@ -1,0 +1,22 @@
+<div class="main--register">
+  <h3>Sign Up</h3>
+  <p ng-show="message" class="error">{{ message }}</p>
+  <form name="myForm" class="register--form" ng-submit="vm.register()" novalidate>
+    <fieldset>
+      <input class="register--first-input" type="text" name="firstname" placeholder="First Name" ng-model="vm.user.first_name" ng-required="true">
+      <p class="error validationerror" ng-show="myForm.firstname.$invalid && myForm.firstname.$touched">You must enter your first name.</p>
+
+      <input class="register--last-input" type="text" name="lastname" placeholder="Last Name" ng-model="vm.user.last_name" ng-required="true">
+      <p class="error validationerror" ng-show="myForm.lastname.$invalid && myForm.lastname.$touched">You must enter your last name.</p>
+
+      <input class="register--email-input" type="email" name="email" placeholder="Email" ng-model="vm.user.email" ng-required="true">
+      <p class="error validationerror" ng-show="myForm.email.$invalid && myForm.email.$touched">Must be a valid email.</p>
+
+      <input class="register--password-input" type="password" name="password" placeholder="Password" ng-model="vm.user.pword" ng-required="true">
+      <p class="error validationerror" ng-show="myForm.password.$invalid && myForm.password.$touched">You must enter a password.</p>
+    </fieldset>
+    <button type="submit" class="register--submit" ng-disabled="myForm.$invalid">Register</button>
+    <span>or</span>
+    <a class="login--register" ng-href="#!/signin">Login</a>
+  </form>
+</div>

@@ -1,0 +1,5 @@
+<div class="feed--tweet" ng-repeat="cweet in vm.cweetFeed | orderBy: '-timestamp'">
+  <a class="feed--tweet-user" ng-href="#!/user/{{ cweet.user_id }}" class="tweet-user">{{ cweet.first_name }} {{ cweet.last_name }}</a>
+  <span class="feed--tweet-date" am-time-ago="{{ cweet.timestamp }}"></span>
+  <p class="feed--tweet-tweet">{{ cweet.text }}</p>
+</div>

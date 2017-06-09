@@ -1,0 +1,14 @@
+<div class="feed">
+  <div class="feed--tweet-add" ng-show="currentUser">
+    <h2>Post Cweet</h2>
+    <form name="myForm" class="tweet-form" ng-submit="vm.addTweet()" novalidate>
+      <textarea name="new-tweet" placeholder="What's on your goddamn mind?" ng-model="vm.cweetText"
+       ng-required="true"></textarea>
+      <button type="submit" class="post-tweet" ng-disabled="myForm.$invalid">Post</button>
+    </form>
+  </div>
+  <div class="feed--tweet-sections">
+    <!-- Single Tweets -->
+    <cweet></cweet>
+  </div>
+</div>

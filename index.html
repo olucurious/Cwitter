@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="CweetApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Cwitter - Mini Twitter Clone Built With A Kanary Based RestAPI</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <!-- Include angular -->
+    <script src="assets/js/lib/angular.min.js" charset="utf-8"></script>
+    <script src="assets/js/lib/angular-route.min.js" charset="utf-8"></script>
+    <script src="assets/js/lib/angular-cookies.min.js" charset="utf-8"></script>
+    <script src="assets/js/lib/moment.min.js" charset="utf-8"></script>
+    <script src="assets/js/lib/angular-moment.min.js" charset="utf-8"></script>
+
+    <script src="assets/js/app.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <header class="header" ng-include="'views/nav.html'"></header>
+
+    <!-- Wrapper for main content -->
+    <div class="main--wrapper">
+      <!-- Main content goes in this main tag -->
+      <main class="main" ng-view></main>
+    </div>
+  </body>
+</html>

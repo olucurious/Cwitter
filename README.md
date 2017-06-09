@@ -1,2 +1,2 @@
-# Cwitter---Mini-Twitter-Clone-AngularJS-Frontend
-This is the AngularJS frontend of the Mini Twitter Clone built with Kanary web framework
+# Cwitter - A Mini Twitter Clone
+This is the AngularJS frontend of the Mini Twitter Clone written in Kotlin and built with Kanary web framework
