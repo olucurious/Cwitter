@@ -10,7 +10,8 @@ IT WAS A SORT OF HACK TO GET SOMETHING TO WORK IN A SHORT PERIOD OF TIME
 
 (function () {
     'use strict';
-    var CWITTER_API = "https://limitless-journey-77277.herokuapp.com";
+    var CWITTER_API = "http://localhost:8080";
+    //var CWITTER_API = "https://limitless-journey-77277.herokuapp.com";
     angular
         .module('CweetApp', ['ngRoute', 'ngCookies', 'angularMoment'])
         .config(config);
@@ -202,7 +203,7 @@ IT WAS A SORT OF HACK TO GET SOMETHING TO WORK IN A SHORT PERIOD OF TIME
     SignUpController.$inject = ['$location', '$rootScope', 'CweetService'];
     function SignUpController($location, $rootScope, CweetService) {
         var vm = this;
-
+        $rootScope.message = '';
         vm.register = function () {
             var data = {
                 "first_name": vm.user.first_name,
@@ -226,15 +227,22 @@ IT WAS A SORT OF HACK TO GET SOMETHING TO WORK IN A SHORT PERIOD OF TIME
         .module('CweetApp')
         .controller('ProfileController', ProfileController);
 
-    ProfileController.$inject = ['$routeParams', '$rootScope', 'CweetService'];
-    function ProfileController($routeParams, $rootScope, CweetService) {
+    ProfileController.$inject = ['$routeParams', '$rootScope', 'CweetService', '$location'];
+    function ProfileController($routeParams, $rootScope, CweetService, $location) {
         var vm = this;
         var userProfileId = $routeParams.uId;
         var data = {"user_id": userProfileId};
+
         CweetService.GetUserTimeline(data).then(function (data) {
-            vm.cweetFeed = data.data;
+
             $rootScope.currentUser = data.user;
-            vm.userName = $rootScope.currentUser.first_name;
+            if (data.status === "success"){
+                vm.cweetFeed = data.data;
+                vm.userName = data.profile_user.first_name;
+            } else {
+                // redirect you to the homepage because that's what you deserve for trying to check a profile that doesn't exist
+                $location.path('/');
+            }
         });
     }
 
